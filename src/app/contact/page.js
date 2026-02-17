@@ -9,6 +9,7 @@ export default function ContactPage() {
             <PageHeader
                 title="Get in Touch"
                 subtitle="Ready to start your biodiesel journey? We are here to help."
+                bgImage="/images/img6.jpg"
                 curveColor="fill-slate-900"
             />
             <div className="-mt-10 relative z-20">

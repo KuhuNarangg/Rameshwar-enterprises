@@ -9,6 +9,7 @@ export default function WhyUsPage() {
             <PageHeader
                 title="Why Choose Us"
                 subtitle="Proven technology, unmatched support, and guaranteed results."
+                bgImage="/images/img3.jpg"
                 curveColor="fill-slate-900"
             />
             <div className="-mt-10 relative z-20">

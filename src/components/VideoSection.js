@@ -21,11 +21,11 @@ const VideoSection = ({ videoId, videoSrc, title, subtitle }) => {
     };
 
     return (
-        <section ref={ref} className="py-24 bg-slate-900 relative overflow-hidden">
+        <section ref={ref} className="py-24 bg-white relative overflow-hidden">
             {/* Background Effects */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-                <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-emerald-500 blur-[150px]" />
-                <div className="absolute bottom-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-blue-500 blur-[150px]" />
+                <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-emerald-200 blur-[150px]" />
+                <div className="absolute bottom-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-emerald-200 blur-[150px]" />
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -35,8 +35,8 @@ const VideoSection = ({ videoId, videoSrc, title, subtitle }) => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-                    {title && <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">{title}</h2>}
-                    {subtitle && <p className="text-slate-400 max-w-2xl mx-auto text-lg">{subtitle}</p>}
+                    {title && <h2 className="text-3xl md:text-5xl font-black text-emerald-950 mb-6 tracking-tight">{title}</h2>}
+                    {subtitle && <p className="text-emerald-800 max-w-2xl mx-auto text-lg">{subtitle}</p>}
                 </motion.div>
 
                 <div className="flex justify-center">

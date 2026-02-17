@@ -10,6 +10,7 @@ export default function AboutPage() {
             <PageHeader
                 title="About Rameshwar"
                 subtitle="Pioneering sustainable energy solutions since 2010."
+                bgImage="/images/img5.jpg"
             />
 
             {/* Mission & Vision */}

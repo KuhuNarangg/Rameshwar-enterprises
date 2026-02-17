@@ -10,6 +10,7 @@ export default function ProductsPage() {
             <PageHeader
                 title="Biodiesel Production Plant"
                 subtitle="State-of-the-art automated units designed for maximum efficiency and premium B100 output."
+                bgImage="/images/img4.jpg"
             />
 
             {/* Process Flow Chart */}
