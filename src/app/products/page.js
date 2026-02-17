@@ -55,55 +55,68 @@ export default function ProductsPage() {
                             { title: "Reaction & Settling", icon: Beaker, step: "03", color: "bg-purple-500", desc: "Rapid glycerin separation via centrifugal force." },
                             { title: "Dry Wash Purification", icon: CheckCircle, step: "04", color: "bg-emerald-600", desc: "Ion-exchange resin filtering for pure B100." }
                         ].map((item, index) => (
-                            <div key={index} className="relative z-10 bg-white p-6 rounded-2xl shadow-lg border border-slate-100 text-center w-full md:w-64 h-64 flex flex-col items-center justify-center hover:-translate-y-2 transition-transform">
-                                <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-md`}>
+                            <div key={index} className="relative z-10 bg-white p-8 rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100/60 text-center w-full md:w-64 h-72 flex flex-col items-center justify-center hover:-translate-y-2 transition-all duration-300">
+                                <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center text-white mx-auto mb-6 shadow-md shadow-emerald-500/20`}>
                                     <item.icon size={32} />
                                 </div>
-                                <div className="absolute -top-3 -right-3 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-xs border-4 border-white">
+                                <div className="absolute -top-3 -right-3 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-xs border-4 border-white shadow-sm">
                                     {item.step}
                                 </div>
-                                <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
-                                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                                <h3 className="font-bold text-slate-900 mb-3 text-lg">{item.title}</h3>
+                                <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* Detailed Step-by-Step Breakdown */}
-                <div className="mt-24 grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                            <span className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">01</span>
-                            Feedstock Pre-treatment
-                        </h3>
-                        <p className="text-slate-600 leading-relaxed mb-6">
-                            Raw feedstock often contains impurities, moisture, and high Free Fatty Acids (FFA). Our automated pre-treatment module filters solid contaminants and reduces moisture content below 0.1%. For high-FFA oils (like Acid Oil), an acid esterification process is triggered automatically to prevent soap formation, ensuring a smooth conversion process.
-                        </p>
-
-                        <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                            <span className="bg-emerald-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">02</span>
-                            Nano-Cavitation Reactor
-                        </h3>
-                        <p className="text-slate-600 leading-relaxed">
-                            This is the heart of the Series-R plant. Unlike conventional stirring tanks, our <strong>Hydrodynamic Cavitation</strong> technology creates microscopic cavities that implode with high energy. This results in intense localized temperatures and pressures, forcing immediate reaction between oil and methanol. The result? <strong>99% conversion in seconds</strong>, not hours.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                            <span className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">03</span>
-                            Reaction & Settling
-                        </h3>
-                        <p className="text-slate-600 leading-relaxed mb-6">
-                            Post-reaction, the mixture enters a high-speed centrifugal separator. Here, heavy glycerin is instantly separated from the lighter biodiesel methyl ester. This continuous separation eliminates the need for massive gravity settling tanks, saving huge amounts of floor space and reducing processing time drastically.
-                        </p>
-
-                        <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                            <span className="bg-emerald-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">04</span>
-                            Dry Wash Purification
-                        </h3>
-                        <p className="text-slate-600 leading-relaxed">
-                            The final step ensures purity. We avoid water washing (which creates effluent) and instead use a specialized <strong>Ion-Exchange Resin</strong> column. This "Dry Wash" removes trace catalyst, soap, and moisture, polishing the biodiesel to meet strict EN 14214 and IS 15607 standards. The final fuel is crystal clear, stable, and ready for use.
-                        </p>
+                {/* Detailed Step-by-Step Breakdown - Table Style */}
+                <div className="mt-32 max-w-5xl mx-auto">
+                    <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div className="bg-slate-50/50 p-8 border-b border-slate-100">
+                            <h3 className="text-xl font-bold text-slate-900">Process Detail</h3>
+                            <p className="text-slate-500 text-sm">Comprehensive breakdown of the continuous transesterification stages.</p>
+                        </div>
+                        <div className="divide-y divide-slate-100/60">
+                            {[
+                                {
+                                    step: "01",
+                                    title: "Feedstock Pre-treatment",
+                                    desc: "Raw feedstock often contains impurities, moisture, and high Free Fatty Acids (FFA). Our automated pre-treatment module filters solid contaminants and reduces moisture content below 0.1%. For high-FFA oils (like Acid Oil), an acid esterification process is triggered automatically to prevent soap formation, ensuring a smooth conversion process.",
+                                    color: "bg-blue-500"
+                                },
+                                {
+                                    step: "02",
+                                    title: "Nano-Cavitation Reactor",
+                                    desc: "This is the heart of the Series-R plant. Unlike conventional stirring tanks, our Hydrodynamic Cavitation technology creates microscopic cavities that implode with high energy. This results in intense localized temperatures and pressures, forcing immediate reaction between oil and methanol. The result? 99% conversion in seconds, not hours.",
+                                    color: "bg-emerald-500"
+                                },
+                                {
+                                    step: "03",
+                                    title: "Reaction & Settling",
+                                    desc: "Post-reaction, the mixture enters a high-speed centrifugal separator. Here, heavy glycerin is instantly separated from the lighter biodiesel methyl ester. This continuous separation eliminates the need for massive gravity settling tanks, saving huge amounts of floor space and reducing processing time drastically.",
+                                    color: "bg-purple-500"
+                                },
+                                {
+                                    step: "04",
+                                    title: "Dry Wash Purification",
+                                    desc: "The final step ensures purity. We avoid water washing (which creates effluent) and instead use a specialized Ion-Exchange Resin column. This 'Dry Wash' removes trace catalyst, soap, and moisture, polishing the biodiesel to meet strict EN 14214 and IS 15607 standards. The final fuel is crystal clear, stable, and ready for use.",
+                                    color: "bg-emerald-600"
+                                }
+                            ].map((item, i) => (
+                                <div key={i} className="p-10 hover:bg-slate-50/40 transition-colors group flex flex-col md:flex-row gap-8 items-start">
+                                    <div className="shrink-0">
+                                        <span className={`${item.color} text-white w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold shadow-md shadow-slate-200`}>
+                                            {item.step}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-xl font-bold text-slate-900 mb-4">{item.title}</h4>
+                                        <p className="text-slate-600 leading-relaxed text-lg">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -212,20 +225,20 @@ export default function ProductsPage() {
             <div className="py-20 bg-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-black text-slate-900 uppercase mb-10 text-center">Technical Specifications</h2>
-                    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                        <table className="w-full text-left">
-                            <tbody className="divide-y divide-slate-100">
+                    <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                        <table className="w-full text-left border-collapse">
+                            <tbody className="divide-y divide-slate-100/50">
                                 {[
                                     { label: "Daily Capacity", value: "50 KL / 100 KL / 350 KL" },
-                                    { label: "Feedback Types", value: "UCO, Acid Oil, Tallow, Vegetable Fats" },
-                                    { label: "Reaction Type", value: "Multi-stage Transesterification" },
+                                    { label: "Feedstock Versatility", value: "UCO, Acid Oil, Tallow, Vegetable Fats" },
+                                    { label: "Reaction Technology", value: "Multi-stage Transesterification (Continuous)" },
                                     { label: "Automation Level", value: "Fully PLC Controlled (SCADA Optional)" },
                                     { label: "Power Consumption", value: "Low (Heat Recovery System Included)" },
                                     { label: "Area Required", value: "2500 sq. ft. (min)" }
                                 ].map((row, i) => (
-                                    <tr key={i} className="hover:bg-slate-50/50">
-                                        <td className="p-6 font-bold text-slate-700 w-1/3">{row.label}</td>
-                                        <td className="p-6 text-slate-600 font-mono">{row.value}</td>
+                                    <tr key={i} className="hover:bg-slate-50/80 transition-colors group">
+                                        <td className="p-8 font-bold text-slate-700 w-1/3 border-r border-slate-50 group-hover:border-slate-100 transition-colors">{row.label}</td>
+                                        <td className="p-8 text-slate-600 font-mono leading-relaxed">{row.value}</td>
                                     </tr>
                                 ))}
                             </tbody>
