@@ -1,21 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fcfdfc;
+  /* heavily tinted white-green */
+  --foreground: #14532d;
+  /* emerald-900 - professional dark green, not black */
+  --primary: #059669;
+  /* emerald-600 - solid professional green */
+  --primary-foreground: #ffffff;
+  --secondary: #ecfdf5;
+  /* emerald-50 - very light green for sections */
+  --secondary-foreground: #064e3b;
+  /* emerald-950 - darkest green for text */
+  --accent: #10b981;
+  /* emerald-500 - brighter highlight */
+  --accent-foreground: #ffffff;
+  --muted: #d1fae5;
+  /* emerald-100 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Instead of black, use very deep forest green */
+    --background: #022c22;
+    /* emerald-950 */
+    --foreground: #f0fdf4;
+    /* emerald-50 */
+    --primary: #10b981;
+    /* emerald-500 */
+    --primary-foreground: #ffffff;
+    --secondary: #064e3b;
+    /* emerald-900 */
+    --secondary-foreground: #d1fae5;
+    /* emerald-100 */
+    --accent: #34d399;
+    /* emerald-400 */
+    --accent-foreground: #022c22;
+    --muted: #065f46;
+    /* emerald-800 */
   }
 }
 
