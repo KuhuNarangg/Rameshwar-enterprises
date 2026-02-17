@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Leaf } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useQuote } from '../context/QuoteContext';
@@ -9,6 +10,8 @@ import { useQuote } from '../context/QuoteContext';
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
+    const isHome = pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -19,12 +22,21 @@ export default function Navbar() {
     const { setIsOpen: openQuote } = useQuote();
 
     const menuItems = [
-        { name: 'Home', href: '/#home' },
-        { name: 'Why Us', href: '/#why-us' },
-        { name: 'The Plant', href: '/#plant' },
-        { name: 'About', href: '/#about' },
-        { name: 'Contact', href: '/#contact' },
+        { name: 'Home', href: '/' },
+        { name: 'Why Us', href: '/why-us' },
+        { name: 'Biodiesel Plant', href: '/products' },
+        { name: 'About', href: '/about' },
+        { name: 'Contact', href: '/contact' },
     ];
+
+    // Text color logic:
+    // Scrolled: Always Dark (slate-900)
+    // Top: Always White (Home has dark image, Subpages have dark header)
+    const textColorClass = scrolled ? 'text-slate-900' : 'text-white';
+    const linkColorClass = scrolled ? 'text-slate-600 hover:text-emerald-600' : 'text-slate-200 hover:text-white';
+    const logoTextClass = scrolled ? 'text-slate-900' : 'text-white';
+    const logoDotClass = scrolled ? 'text-emerald-600' : 'text-emerald-400';
+    const mobileMenuButtonClass = scrolled ? 'text-slate-900' : 'text-white';
 
     return (
         <nav className={`fixed w-full z-[100] transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-lg shadow-sm py-3' : 'bg-transparent py-5'}`}>
@@ -39,14 +51,14 @@ export default function Navbar() {
                                 className="object-cover scale-150"
                             />
                         </div>
-                        <span className={`font-black text-xl tracking-tighter uppercase transition-colors ${scrolled ? 'text-slate-900' : 'text-slate-900'}`}>
-                            Rameshwar<span className="text-emerald-600 font-light">.Ent</span>
+                        <span className={`font-black text-xl tracking-tighter uppercase transition-colors ${logoTextClass}`}>
+                            Rameshwar<span className={`font-light ${logoDotClass}`}>.Ent</span>
                         </span>
                     </Link>
 
                     <div className="hidden md:flex items-center space-x-8">
                         {menuItems.map((item) => (
-                            <Link key={item.name} href={item.href} className="text-xs font-bold uppercase tracking-widest text-slate-600 hover:text-emerald-600 transition-colors">
+                            <Link key={item.name} href={item.href} className={`text-xs font-bold uppercase tracking-widest transition-colors ${linkColorClass}`}>
                                 {item.name}
                             </Link>
                         ))}
@@ -55,7 +67,7 @@ export default function Navbar() {
                         </button>
                     </div>
 
-                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-slate-900">
+                    <button onClick={() => setIsOpen(!isOpen)} className={`md:hidden ${mobileMenuButtonClass}`}>
                         {isOpen ? <X /> : <Menu />}
                     </button>
                 </div>
